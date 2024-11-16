@@ -41,7 +41,7 @@ class orderController extends Controller
                 $ordersQuery = order::with([
                     'products' => function ($query) {
                         // إحضار العلاقات المرتبطة بالمنتجات مثل المتجر والتصنيف والتقييم والصور والحجم واللون
-                        $query->with('store', 'category', 'review', 'image', 'size', 'color');
+                        $query->with('store', 'category', 'review', 'images', 'size', 'color');
                     },
                     'color',
                     'size',

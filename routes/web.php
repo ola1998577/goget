@@ -3,6 +3,8 @@
 use App\Http\Controllers\driverController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 // use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
@@ -55,7 +57,11 @@ Route::group(['middleware' => ['auth', 'permission']], function() {
 Route::resource('users',  userController::class);
 Route::resource('drivers',  driverController::class);
 Route::resource('roles', RoleController::class);
-
+Route::resource('categories', CategoryController::class);
+Route::get('categories/{id}/children', [CategoryController::class, 'children'])->name('categories.children');
+Route::get('categories/{id}/children/data', [CategoryController::class, 'getChildrenData'])->name('categories.children.data');
+Route::resource('products', ProductController::class);
+Route::delete('/products/image/{id}', [ProductController::class, 'deleteImage'])->name('products.delete_image');
 
 Route::get('locale/{locale}', function ($locale) {
 

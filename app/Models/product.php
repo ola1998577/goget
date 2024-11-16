@@ -40,7 +40,7 @@ class product extends Model
         return $this->hasMany(product_size::class);
     }
 
-    public function image(){
+    public function images(){
         return $this->hasMany(product_image::class);
     }
     public function reviews(){

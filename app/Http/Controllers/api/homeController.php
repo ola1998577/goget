@@ -72,7 +72,7 @@ class homeController extends Controller
                 'category.translations' => function ($query) use ($language) {
                     $query->where('language', $language)->select('category_id', 'title as name');
                 },
-                'image:id,product_id,image',
+                'images:id,product_id,image',
                 'translations' => function ($query) use ($language) {
                     $query->where('language', $language)->select('product_id', 'title as name', 'description');
                 }
@@ -147,7 +147,7 @@ class homeController extends Controller
                     'category.translations' => function ($query) use ($language) {
                         $query->where('language', $language)->select('category_id', 'title as name');
                     },
-                    'image:id,product_id,image',
+                    'images:id,product_id,image',
                     'translations' => function ($query) use ($language) {
                         $query->where('language', $language)->select('product_id', 'title as name', 'description');
                     }
@@ -228,7 +228,7 @@ class homeController extends Controller
                     'category.translations' => function ($query) use ($language) {
                         $query->where('language', $language)->select('category_id', 'title as name');
                     },
-                    'image:id,product_id,image',
+                    'images:id,product_id,image',
                     'translations' => function ($query) use ($language) {
                         $query->where('language', $language)->select('product_id', 'title as name', 'description');
                     }
@@ -394,7 +394,7 @@ class homeController extends Controller
 
         // استعلام لجلب تفاصيل المنتج مع الترجمات
         $product = Product::with([
-            'image',           // الصور
+            'images',           // الصور
             'reviews',          // المراجعات
             'colors',           // الألوان
             'sizes',            // الأحجام

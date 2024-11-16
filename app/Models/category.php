@@ -28,4 +28,16 @@ class category extends Model
  {
      return $this->hasMany(product::class);
  }
+
+ // علاقة الفئة بأبنائها
+ public function children()
+ {
+     return $this->hasMany(Category::class, 'parent_id');
+ }
+
+ // علاقة الفئة بأبائها
+ public function parent()
+ {
+     return $this->belongsTo(Category::class, 'parent_id');
+ }
 }
